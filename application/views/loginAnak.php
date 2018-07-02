@@ -28,9 +28,9 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <li><a class="nav-link" href="<?php echo site_url()?>/pegawai">Pegawai<span class="sr-only">(current)</span></a></li>
-            <a class="nav-link" href="<?php echo site_url()?>/jabatan">Jabatan<span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="<?php echo site_url()?>/anak">Anak<span class="sr-only">(current)</span></a>
+            <li><a class="nav-link" href="<?php echo site_url()?>/pegawai">Home<span class="sr-only">(current)</span></a></li>
+            <a class="nav-link" href="<?php echo site_url()?>/jabatan">Admin<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo site_url()?>/anak">Profile<span class="sr-only">(current)</span></a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
@@ -41,7 +41,7 @@
 
     <main role="main" class="container">
       <div class="jumbotron">
-        <h1>Anak</h1>
+        <h1>Profile</h1>
         <p class="lead">
         	<?php 
 echo 'Selamat Datang, '.$this->session->userdata('logged_in')['username']; ?>
