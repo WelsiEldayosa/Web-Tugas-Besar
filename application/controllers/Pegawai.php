@@ -27,10 +27,14 @@
  	public function Index()
  	{
  		$session_data=$this->session->userdata('logged_in');
- 		$data['username']=$session_data['username'];
- 		$this->load->view('home',$data);
- 	}
- 
+ 		$query = $this->Mbarang->getData_barang();
+		$data = array(
+					"query" => $query,
+				);
+		$this->load->view('home',$data);
+		}
+
+ 	
  }
  
  /* End of file Pegawai.php */

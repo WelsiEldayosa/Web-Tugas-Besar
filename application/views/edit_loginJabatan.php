@@ -29,73 +29,52 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <li><a class="nav-link" href="<?php echo site_url()?>/pegawai">Home<span class="sr-only">(current)</span></a></li>
-            <li><a class="nav-link" href="<?php echo site_url()?>/jabatan">Admin<span class="sr-only">(current)</span></a></li>
+            <a class="nav-link" href="<?php echo site_url()?>/jabatan">Admin<span class="sr-only">(current)</span></a>
             <a class="nav-link" href="<?php echo site_url()?>/anak">Profile<span class="sr-only">(current)</span></a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
-          <a href="<?php echo base_url('index.php/Login/logout') ?>" class="btn btn-warning my-2 my-sm-0 ml-2">Logout</a>
+          <a href="<?php echo base_url('index.php/Login/logout') ?>" class="btn btn-secondary my-2 my-sm-0 ml-2">Logout</a>
         </form>
       </div>
     </nav>
 
     <main role="main" class="container">
       <div class="jumbotron">
-        <h1>Home</h1>
+        <h1>Admin</h1>
         <p class="lead">
         	<?php 
 echo 'Selamat Datang, '.$this->session->userdata('logged_in')['username']; ?>
         </p>
-         </div>
-  <br>
-  
-  <table class="table table-bordered" cellpadding="5" id="tabel_data">
-  <thead>
-    <tr class="success">
-      <th>No.</th>
-      <th>Kode_Barang</th>
-      <th>Nama_Barang</th>
-      <th>Harga</th>
-      <th>Stok</th>
-      <th>Kondisi</th>
-    </tr>
-      
-  </thead>
-  <tbody>
-  
-    <?php 
-        $no=1;
-        foreach ($query as $d) { 
-        ?> 
-    <tr class="warning">
-      <td><?php echo $no++; ?></td>
-      <td><?php echo $d->kode_barang; ?> </td>
-      <td><?php echo $d->nama_barang; ?> </td>
-      <td><?php echo $d->harga; ?> </td>
-      <td><?php echo $d->stok; ?> </td>
-      <td>
-      </td>
-    </tr>
-   <?php
-}
-    ?>
-  <table>
-  
-  
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $('#tabel_data').DataTable( {
-        "scroolX"           : true,
-       // "scrollY"           : "350px",
-        "scrollCollapse"    : true,
-        "paging"            : true,
-    } );        
-});
-</script>
       </div>
-    </main>
-
+  
+  <div class="row">
+  <h3>Edit Data Barang</h3>
+  <div class="col-md-8">
+  <form method="post" action="<?php echo site_url('jabatan/simpan_edit_barang');?>">
+    <div class="form-group">
+    <label>Kode Barang</label>
+    <input name="kode_barang" type="text" class="form-control" value="<?php  echo $kode_barang;//$data['nama_distributor']; ?>">
+    </div>
+    <div class="form-group">
+    <label>Nama Barang</label>
+    <input name="nama_barang" type="text" class="form-control" value="<?php  echo $nama_barang;//$data['nama_distributor']; ?>">
+    </div>
+    <div class="form-group">
+    <label>Harga</label>
+    <textarea name="harga" class="form-control"><?php  echo $harga;//$data['alamat']; ?></textarea>
+    </div>
+    <div class="form-group">
+    <label>Stok</label>
+    <input name="stok" type="text" class="form-control" value="<?php  echo $stok//$data['telephon']; ?>">
+    </div>
+    
+    <input name="fsimpan" type="submit" class="btn btn-sm btn-success" value="Simpan">
+    
+    <a class="btn btn-sm btn-danger" href="<?php echo site_url('loginJabatan');?>">Kembali</a>
+    <input style="height: 0; width: 0; border: 0;"  name="kode_barang" type="text" value="<?php  echo $kode_barang;//$data['nama_distributor']; ?>" readonly>
+    
+  </form>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

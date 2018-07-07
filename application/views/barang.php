@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,6 +11,8 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">
+    <link href="<?php echo base_url();?>assets/dataTables/datatables.min.css" rel="stylesheet">
+
 
 
     <!-- Custom styles for this template -->
@@ -29,6 +30,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <li><a class="nav-link" href="<?php echo site_url()?>/pegawai">Home<span class="sr-only">(current)</span></a></li>
+            <li><a class="nav-link" href="<?php echo site_url()?>/barang">Data<span class="sr-only">(current)</span></a></li>
             <li><a class="nav-link" href="<?php echo site_url()?>/jabatan">Admin<span class="sr-only">(current)</span></a></li>
             <a class="nav-link" href="<?php echo site_url()?>/anak">Profile<span class="sr-only">(current)</span></a>
           </li>
@@ -39,49 +41,78 @@
       </div>
     </nav>
 
-    <main role="main" class="container">
-      <div class="jumbotron">
-        <h1>Home</h1>
-        <p class="lead">
-        	<?php 
-echo 'Selamat Datang, '.$this->session->userdata('logged_in')['username']; ?>
-        </p>
-         </div>
+
+<div class="jumbotron text-center">
+  <h1>Riki Rhoma BOOK</h1> 
+  <p>Lebih Baik kutu buku dari pada kutu beneran</p> 
+  <form class="form-inline">
+   </form>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-8">
+		<h3>Data Barang</h3>
+		
+		<a class="btn btn-sm btn-success" href="<?php echo site_url('tambah_barang'); ?>">Tambah Data</a>
+		
+	</div>
+  
+  
   <br>
-  
-  <table class="table table-bordered" cellpadding="5" id="tabel_data">
-  <thead>
-    <tr class="success">
-      <th>No.</th>
-      <th>Kode_Barang</th>
-      <th>Nama_Barang</th>
-      <th>Harga</th>
-      <th>Stok</th>
-      <th>Kondisi</th>
-    </tr>
-      
-  </thead>
-  <tbody>
-  
-    <?php 
+	
+	<table class="table table-bordered" cellpadding="5" id="tabel_data">
+	<thead>
+		<tr class="success">
+			<th>No.</th>
+			<th>Kode_Barang</th>
+			<th>Nama_Barang</th>
+			<th>Harga</th>
+			<th>Stok</th>
+			<th>Opsi</th>
+		</tr>
+			
+	</thead>
+	<tbody>
+	
+		<?php 
         $no=1;
         foreach ($query as $d) { 
-        ?> 
-    <tr class="warning">
-      <td><?php echo $no++; ?></td>
-      <td><?php echo $d->kode_barang; ?> </td>
-      <td><?php echo $d->nama_barang; ?> </td>
-      <td><?php echo $d->harga; ?> </td>
-      <td><?php echo $d->stok; ?> </td>
-      <td>
-      </td>
-    </tr>
-   <?php
-}
-    ?>
-  <table>
-  
-  
+        ?>
+		<tr class="warning">
+			<td><?php echo $no++; ?></td>
+			<td><?php echo $d->kode_barang; ?> </td>
+			<td><?php echo $d->nama_barang; ?> </td>
+			<td><?php echo $d->harga; ?> </td>
+			<td><?php echo $d->stok; ?> </td>
+			<td>
+				<a onclick="return confirm('anda yakin ingin menghapusnya?')" title="Hapus" 
+				href="<?php echo site_url('barang/hapus_barang/'.$d->kode_barang); ?>">
+				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+				|
+				<a title="edit" href="<?php echo site_url('admin/edit_barang/'.$d->id_barang); ?>">
+				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+				<br>
+				<!--<a class="btn btn-xs btn-info" title="Pasok Buku" href="<?php echo site_url('admin/pasok_buku/'.$d->id_buku); ?>">Pasok</a>-->
+			
+			</td>
+			
+		</tr>
+		<?php
+	}
+	//}
+		?>
+	<table>
+	
+	<nav>
+	<ul class="pagination">
+	<?php/*
+	for ($i=1; $i <= $hal; $i++){*/
+		?>
+		<li <?php //if($page==$i){ echo "class='active'";} ?>><a href="?menu=data_buku&hal=<?php //echo $i; ?>"><?php //echo $i ?></a></li>
+		<?php
+	//}
+	?>
+	
+<?php $this->load->view('admin/footer');?>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -93,16 +124,3 @@ $(document).ready(function(){
     } );        
 });
 </script>
-      </div>
-    </main>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-
-  </body>
-</html>
-

@@ -46,9 +46,60 @@
         	<?php 
 echo 'Selamat Datang, '.$this->session->userdata('logged_in')['username']; ?>
         </p>
-      </div>
-    </main>
 
+      </div>
+  <a class="btn btn-sm btn-success" href="<?php echo site_url('jabatan/tambah_barang'); ?>">Tambah Data</a>
+    
+  <br>
+  
+  <table class="table table-bordered" cellpadding="5" id="tabel_data">
+  <thead>
+    <tr class="success">
+      <th>No.</th>
+      <th>Kode_Barang</th>
+      <th>Nama_Barang</th>
+      <th>Harga</th>
+      <th>Stok</th>
+      <th>Opsi</th>
+    </tr>
+      
+  </thead>
+  <tbody>
+  
+    <?php 
+        $no=1;
+        foreach ($query as $d) { 
+        ?> 
+    <tr class="warning">
+      <td><?php echo $no++; ?></td>
+      <td><?php echo $d->kode_barang; ?> </td>
+      <td><?php echo $d->nama_barang; ?> </td>
+      <td><?php echo $d->harga; ?> </td>
+      <td><?php echo $d->stok; ?> </td>
+      <td>
+              <?php echo anchor('jabatan/edit_barang/'.$d->kode_barang,'edit'); ?> 
+              <?php echo anchor('jabatan/hapus_barang/'.$d->kode_barang,'Hapus'); ?> 
+      </td>
+      
+    </tr>
+   <?php
+}
+    ?>
+  <table>
+  
+  
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#tabel_data').DataTable( {
+        "scroolX"           : true,
+       // "scrollY"           : "350px",
+        "scrollCollapse"    : true,
+        "paging"            : true,
+    } );        
+});
+</script>
+  
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
