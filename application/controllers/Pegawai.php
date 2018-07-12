@@ -34,7 +34,10 @@
 		$this->load->view('home',$data);
 		}
 
- 	
+ 	public function beli()
+	{
+		$this->load->view('beli');
+	}
  }
  
  /* End of file Pegawai.php */

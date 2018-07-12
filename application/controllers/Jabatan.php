@@ -102,6 +102,8 @@
 	{
 		$this->load->view('tambah_barang');
 	}
+
+	
  
  }
  

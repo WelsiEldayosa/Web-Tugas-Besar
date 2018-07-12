@@ -91,7 +91,7 @@
 				<a title="edit" href="<?php echo site_url('admin/edit_barang/'.$d->id_barang); ?>">
 				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 				<br>
-				<!--<a class="btn btn-xs btn-info" title="Pasok Buku" href="<?php echo site_url('admin/pasok_buku/'.$d->id_buku); ?>">Pasok</a>-->
+				
 			
 			</td>
 			

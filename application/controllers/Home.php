@@ -12,7 +12,11 @@ class Home extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->view('home.php');
+		$query = $this->Mbarang->getData_barang();
+		$data = array(
+					"query" => $query,
+				);
+		$this->load->view('home', $data);
 	}
 	
 }
