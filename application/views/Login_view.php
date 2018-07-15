@@ -15,7 +15,7 @@
   <body class="text-center">
     <form class="form-signin" method="post" action="<?php echo base_url('index.php/Login/cekLogin') ?>">
       <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-      <h1 class="h1 mb-3 font-weight-normal">Log in SEK</h1>
+      <h1 class="h1 mb-3 font-weight-normal">LOG IN Toko Mainan</h1>
       <?php echo validation_errors(); ?>
       <label for="username" class="sr-only">Username</label>
       <input type="text" name="username" id="username" class="form-control" placeholder="Username" autofocus>
@@ -30,6 +30,8 @@
 <style>
   html,
 body {
+	background: url(assets/images/NGE.jpg);
+	background-size: cover;
   height: 100%;
 }
 

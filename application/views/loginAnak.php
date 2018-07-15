@@ -48,6 +48,15 @@ echo 'Selamat Datang, '.$this->session->userdata('logged_in')['username']; ?>
         </p>
       </div>
     </main>
+      <title>Contact Us</title>
+
+
+<center> <h1>Toko Mainan Anak</h1>
+<br><br><br><br>
+<legend><center><h3>Contact Us :</h3></center></legend><br><br>
+<center><h4>Email : MainanAnak@gmail.com</h4></center>
+<center><h4>Telp : (0822) 287662 </h4></center>
+<center><h4>No.Hp : 081366666666</h4></center>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
