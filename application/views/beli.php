@@ -51,18 +51,18 @@ echo 'Selamat Datang, '.$this->session->userdata('logged_in')['username']; ?>
   <div class="row">
   <h3>from beli</h3>
   <div class="col-md-8">
-  <form method="post" action="<?php echo site_url('pegawai/beli');?>">
+  <form method="post" action="<?php echo site_url('pegawai/total');?>">
     <div class="form-group">
     <label>Kode</label>
-    <input name="kode_barang" type="text" class="form-control" placeholder="kode barang" required="required">
+    <input name="kode_barang" type="text" class="form-control" value="<?php echo $query[0]->kode_barang; ?>" required="required" readonly>
     </div>
     <div class="form-group">
     <label>Nama Barang</label>
-    <input name="nama_barang" type="text" class="form-control" placeholder="Nama Barang" required="required">
+    <input name="nama_barang" type="text" class="form-control" value="<?php echo $query[0]->nama_barang; ?>" required="required" readonly>
     </div>
     <div class="form-group">
     <label>Harga</label>
-    <input name="harga" type="text" class="form-control" placeholder="Harga" required="required">
+    <input name="harga" type="text" class="form-control" value="<?php echo $query[0]->harga; ?>" required="required" readonly>
     </div>
     <div class="form-group">
     <label>Jumlah Beli</label>
@@ -79,6 +79,7 @@ echo 'Selamat Datang, '.$this->session->userdata('logged_in')['username']; ?>
    
   </form>
 </div>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

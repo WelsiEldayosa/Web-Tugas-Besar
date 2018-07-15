@@ -74,7 +74,8 @@ echo 'Selamat Datang, '.$this->session->userdata('logged_in')['username']; ?>
       <td><?php echo $d->harga; ?> </td>
       <td><?php echo $d->stok; ?> </td>
       <td>
-        <?php echo anchor('pegawai/beli/'.$d->kode_barang,'beli'); ?> 
+        <a href="<?php echo site_url('pegawai/beli/'. $d->kode_barang); ?>">beli</a>
+        <?php //echo anchor('pegawai/beli/'.$d->kode_barang,'beli'); ?> 
       </td>
 
     </tr>

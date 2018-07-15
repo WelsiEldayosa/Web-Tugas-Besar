@@ -34,9 +34,19 @@
 		$this->load->view('home',$data);
 		}
 
- 	public function beli()
+ 	public function beli($kode)
 	{
-		$this->load->view('beli');
+		$data['query']= $this->Mbarang->getData($kode);
+		$this->load->view('beli',$data);
+	}
+
+	public function total(){
+		$this->Mbarang->total();
+		redirect('pegawai/total_barang');
+	}
+	public function total_barang(){
+		$data['query'] = $this->Mbarang->total_barang();
+		$this->load->view('total', $data);
 	}
  }
  
