@@ -77,7 +77,8 @@ echo 'Selamat Datang, '.$this->session->userdata('logged_in')['username']; ?>
       <td><?php echo $d->harga; ?> </td>
       <td><?php echo $d->stok; ?> </td>
       <td>
-              <?php echo anchor('jabatan/edit_barang/'.$d->kode_barang,'edit'); ?> 
+
+              <?php echo anchor('jabatan/edit_barang/'.$d->kode_barang,'Edit'); ?> 
               <?php echo anchor('jabatan/hapus_barang/'.$d->kode_barang,'Hapus'); ?> 
       </td>
       
